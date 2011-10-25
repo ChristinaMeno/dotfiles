@@ -6,10 +6,6 @@ set tabstop=4
 set shiftwidth=4
 set path=$PWD/**
 
-" A status bar that shows nice information
-set laststatus=2
-set statusline=%F%m%r%h\ %w\ \ cwd:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L:%c
-
 imap <C-d> import pdb; pdb.set_trace()<CR>
 imap <C-f> from IPython import Shell; Shell.IPShellEmbed(argv=['-noconfirm_exit'])()<CR>
 syntax enable
@@ -38,3 +34,35 @@ let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_browse_split=4 " Open file in previous buffer
 let g:netrw_preview=1 " preview window shown in a vertically split
 
+function! HasError()
+    if exists("g:pyflakes_has_errors")
+        if g:pyflakes_has_errors
+            return "fffuuu"
+        endif
+        return ""
+    else
+        return ""
+    endif
+endfunction
+
+" A status bar that shows nice information
+set laststatus=2
+
+" All status line
+set statusline=%#ErrorMsg#                   " set the highlight to error
+set statusline+=%{HasError()}                " let me know if pyflakes errs
+set statusline+=%*                           " switch back to normal statuscolor
+set statusline+=%-4{fugitive#statusline()}%*
+set statusline+=%F                           " absolute path
+set statusline+=%m                           " are you modified?
+set statusline+=%r                           " are you read only?
+set statusline+=%w                           " are we in a preview window
+set statusline+=\ \ \ cwd:                   " show me the
+set statusline+=%r%{getcwd()}%h              " current working dir
+set statusline+=\ \ \ \ %y                   " what the file type
+set statusline+=[                            "
+set statusline+=\ Line:                      "
+set statusline+=%3l/                         " Line number with padding
+set statusline+=%L                           " Total lines in the file
+set statusline+=:%2c                         " column number
+set statusline+=]                            "
