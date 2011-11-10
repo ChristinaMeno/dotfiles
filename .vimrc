@@ -1,5 +1,4 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+silent! call pathogen#infect()
 
 set expandtab
 set tabstop=4
@@ -37,13 +36,35 @@ let g:netrw_preview=1 " preview window shown in a vertically split
 function! HasError()
     if exists("g:pyflakes_has_errors")
         if g:pyflakes_has_errors
-            return "fffuuu"
+            return "!"
         endif
         return ""
     else
         return ""
     endif
 endfunction
+
+function! Collapse(string)
+    let threshold = 30
+    let total_length = len(a:string)
+    if total_length > threshold
+        let difference = total_length - threshold
+        return ' ...' . strpart(a:string, difference)
+    else
+        return a:string
+    endif
+endfunction
+
+function! Getcwd()
+    let current_dir = getcwd()
+    let current_path = expand("%:p:h")
+    if current_dir == current_path
+        return "."
+    else
+        return current_dir
+    endif
+endfunction
+
 
 " A status bar that shows nice information
 set laststatus=2
@@ -58,7 +79,8 @@ set statusline+=%m                           " are you modified?
 set statusline+=%r                           " are you read only?
 set statusline+=%w                           " are we in a preview window
 set statusline+=\ \ \ cwd:                   " show me the
-set statusline+=%r%{getcwd()}%h              " current working dir
+set statusline+=%{Collapse(Getcwd())}        " current working dir truncated
+set statusline+=%=                           " right align
 set statusline+=\ \ \ \ %y                   " what the file type
 set statusline+=[                            "
 set statusline+=\ Line:                      "
