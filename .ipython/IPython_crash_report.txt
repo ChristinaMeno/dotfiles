@@ -1,0 +1,162 @@
+***************************************************************************
+
+IPython post-mortem report
+
+IPython version: 0.10 
+
+BZR revision   : 1210 
+
+Platform info  : os.name -> posix, sys.platform -> linux2
+
+***************************************************************************
+
+Current user configuration structure:
+
+{'Version': 0,
+ '__allownew': False,
+ 'alias': [],
+ 'args': [],
+ 'autocall': 1,
+ 'autoedit_syntax': 0,
+ 'autoexec': [],
+ 'autoindent': 1,
+ 'automagic': 1,
+ 'banner': 1,
+ 'c': '',
+ 'cache_size': 1000,
+ 'classic': 0,
+ 'color_info': 1,
+ 'colors': 'Linux',
+ 'confirm_exit': 1,
+ 'debug': 0,
+ 'deep_reload': 0,
+ 'editor': 'vim',
+ 'embedded': False,
+ 'execfile': [],
+ 'execute': [''],
+ 'gthread': 0,
+ 'help': 0,
+ 'import_all': [],
+ 'import_mod': [],
+ 'import_some': [[]],
+ 'include': [],
+ 'interact': 0,
+ 'ipythondir': u'/cmg/.ipython',
+ 'log': 0,
+ 'logfile': '',
+ 'logplay': '',
+ 'magic_docstrings': 0,
+ 'messages': 1,
+ 'multi_line_specials': 1,
+ 'nosep': 0,
+ 'object_info_string_level': 0,
+ 'opts': Struct({'__allownew': True, 'pylab': 1}),
+ 'pdb': 0,
+ 'pprint': 1,
+ 'profile': '',
+ 'prompt_in1': 'In [\\#]: ',
+ 'prompt_in2': '   .\\D.: ',
+ 'prompt_out': 'Out[\\#]: ',
+ 'prompts_pad_left': 1,
+ 'pydb': 0,
+ 'pylab': 1,
+ 'pylab_import_all': 1,
+ 'q4thread': 0,
+ 'qthread': 0,
+ 'quick': 0,
+ 'quiet': 0,
+ 'rcfile': 'ipythonrc',
+ 'readline': 1,
+ 'readline_merge_completions': 1,
+ 'readline_omit__names': 0,
+ 'readline_parse_and_bind': ['tab: complete',
+                             '"\\C-l": possible-completions',
+                             'set show-all-if-ambiguous on',
+                             '"\\C-o": tab-insert',
+                             '"\\M-i": "    "',
+                             '"\\M-o": "\\d\\d\\d\\d"',
+                             '"\\M-I": "\\d\\d\\d\\d"',
+                             '"\\C-r": reverse-search-history',
+                             '"\\C-s": forward-search-history',
+                             '"\\C-p": history-search-backward',
+                             '"\\C-n": history-search-forward',
+                             '"\\e[A": history-search-backward',
+                             '"\\e[B": history-search-forward',
+                             '"\\C-k": kill-line',
+                             '"\\C-u": unix-line-discard'],
+ 'readline_remove_delims': '-/~',
+ 'screen_length': -2,
+ 'separate_in': '\n',
+ 'separate_out': '',
+ 'separate_out2': '',
+ 'system_header': 'IPython system call: ',
+ 'system_verbose': 0,
+ 'term_title': 1,
+ 'tk': 0,
+ 'upgrade': 0,
+ 'wildcards_case_sensitive': 1,
+ 'wthread': 0,
+ 'wxversion': '0',
+ 'xmode': 'Context'}
+
+***************************************************************************
+
+Crash traceback:
+
+---------------------------------------------------------------------------
+KeyboardInterrupt                             Python 2.6.5: /usr/bin/python
+                                                   Mon Nov 28 13:20:46 2011
+A problem occured executing Python code.  Here is the sequence of function
+calls leading up to the error, with the most recent (innermost) call last.
+
+/usr/lib/python2.6/lib-tk/Tkinter.pyc in __call__(self=<Tkinter.CallWrapper instance>, *args=('2345', '??', '??', '??', '63', '0', '-345480830', '??', '1137', '714', '', '0', 'Mode_switch', '65406', '.162057260', '2', '1137', '736', '63'))
+   1393         return self.tk.call('image', 'names')
+   1394 
+   1395     def image_types(self):
+   1396         """Return a list of all available image types (e.g. phote bitmap)."""
+   1397         return self.tk.call('image', 'types')
+   1398 
+   1399 
+   1400 class CallWrapper:
+   1401     """Internal class. Stores function to call when some user
+   1402     defined Tcl function is called e.g. after an event occurred."""
+   1403     def __init__(self, func, subst, widget):
+   1404         """Store FUNC, SUBST and WIDGET as members."""
+   1405         self.func = func
+   1406         self.subst = subst
+   1407         self.widget = widget
+-> 1408     def __call__(self, *args):
+        global command = undefined
+        global has = undefined
+        global no = undefined
+        global effect.Returns = undefined
+        global an = undefined
+        global empty = undefined
+        global string. = undefined
+   1409         """Apply first function SUBST to arguments, than FUNC."""
+   1410         try:
+   1411             if self.subst:
+   1412                 args = self.subst(*args)
+   1413             return self.func(*args)
+   1414         except SystemExit, msg:
+   1415             raise SystemExit, msg
+   1416         except:
+   1417             self.widget._report_exception()
+   1418 
+   1419 
+   1420 class Wm:
+   1421     """Provides functions for the communication with the window manager."""
+   1422 
+   1423     def wm_aspect(self,
+
+KeyboardInterrupt: 
+
+***************************************************************************
+
+History of session input:
+x = randn(10000)
+hist(x, 100)
+figure()
+
+*** Last line of input (may not be in above history):
+figure()
