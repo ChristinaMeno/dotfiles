@@ -10,3 +10,9 @@
 [submodule ".vim/bundle/pyflakes-vim"]
 	path = .vim/bundle/pyflakes-vim
 	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "tabular"]
+	path = tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/tabular"]
+	path = .vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
