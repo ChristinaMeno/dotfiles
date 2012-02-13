@@ -4,3 +4,6 @@
 [submodule "bundle/pyflakes"]
 	path = bundle/pyflakes
 	url = https://github.com/alfredodeza/pyflakes-vim
+[submodule ".vim/bundle/fugitive"]
+	path = .vim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
