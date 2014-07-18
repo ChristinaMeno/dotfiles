@@ -4,19 +4,24 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set path=$PWD/**
+set ignorecase
+set hlsearch
 
 imap <C-d> import pdb; pdb.set_trace()<CR>
 imap <C-f> from IPython import Shell; Shell.IPShellEmbed(argv=['-noconfirm_exit'])()<CR>
+nmap <leader>, :tabedit $MYVIMRC<CR>
+nmap <leader>l :set list!<CR>
+nmap <leader>h :set hlsearch!<CR>
+nmap <leader>o :only<CR>
 syntax enable
 filetype on            " enables filetype detection
 filetype plugin on     " enables filetype specific plugins
 let g:pyflakes_use_quickfix = 0
 
-set background=light
+set background=dark
 set tags=~/tags
-set nolist
+set list
 set listchars=tab:▸\ ,eol:¬
-nmap <leader>l :set list!<CR>
 "Invisible character colors
 highlight NonText ctermfg=240
 highlight SpecialKey ctermfg=240
@@ -27,7 +32,6 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-nmap <leader>, :tabedit $MYVIMRC<CR>
 
 let g:netrw_liststyle=3 " Use tree-mode as default view
 let g:netrw_browse_split=4 " Open file in previous buffer
@@ -73,7 +77,6 @@ set laststatus=2
 set statusline=%#ErrorMsg#                   " set the highlight to error
 set statusline+=%{HasError()}                " let me know if pyflakes errs
 set statusline+=%*                           " switch back to normal statuscolor
-set statusline+=%-4{fugitive#statusline()}%*
 set statusline+=%{Collapse(expand('%:p'))}   " absolute path truncated
 set statusline+=%m                           " are you modified?
 set statusline+=%r                           " are you read only?
