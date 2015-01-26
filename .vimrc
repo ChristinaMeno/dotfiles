@@ -16,7 +16,7 @@ nmap <leader>o :only<CR>
 syntax enable
 filetype on            " enables filetype detection
 filetype plugin on     " enables filetype specific plugins
-let g:pyflakes_use_quickfix = 0
+let g:khuno_ignore="E501,W293"
 
 set background=dark
 set tags=~/tags
