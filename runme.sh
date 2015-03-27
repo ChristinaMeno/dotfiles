@@ -1,4 +1,5 @@
 cd ~
+ln -fs ~/dotfiles/.gitconfig ~/.gitconfig
 ln -fs ~/dotfiles/.vim ~/.vim
 ln -fs ~/dotfiles/.vimrc ~/.vimrc
 cd ~/dotfiles

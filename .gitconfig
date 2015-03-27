@@ -1,5 +1,5 @@
-[push]
-	default = tracking
 [user]
 	name = Gregory Meno
-	email = greg.meno@coxinc.com
+	email = gmeno@redhat.com
+[core]
+	editor = /usr/bin/vim
