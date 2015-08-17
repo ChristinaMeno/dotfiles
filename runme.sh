@@ -1,11 +1,14 @@
-cd ~
+#!/bin/bash
+set -e
+pushd ~
 ln -fs ~/dotfiles/.gitconfig ~/.gitconfig
 ln -fs ~/dotfiles/.vim ~/.vim
 ln -fs ~/dotfiles/.vimrc ~/.vimrc
-cd ~/dotfiles
+pushd ~/dotfiles
 git submodule init
 git submodule update
-cd ~/dotfiles/.vim/bundle/pyflakes-vim
+pushd .vim/bundle/khuno
 git submodule init
 git submodule update
-cd ~
+popd
+popd

@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/khuno"]
+	path = .vim/bundle/khuno
+	url = https://github.com/alfredodeza/khuno.vim
