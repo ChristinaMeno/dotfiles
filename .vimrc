@@ -18,7 +18,7 @@ filetype on            " enables filetype detection
 filetype plugin on     " enables filetype specific plugins
 let g:khuno_ignore="E501,W293"
 
-set background=dark
+set background=light
 set tags=~/tags
 set list
 set listchars=tab:▸\ ,eol:¬
