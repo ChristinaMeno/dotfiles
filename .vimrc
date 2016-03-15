@@ -11,6 +11,7 @@ imap <C-d> import pdb; pdb.set_trace()<CR>
 imap <C-f> from IPython import Shell; Shell.IPShellEmbed(argv=['-noconfirm_exit'])()<CR>
 nmap <leader>, :tabedit $MYVIMRC<CR>
 nmap <leader>l :set list!<CR>
+nmap <leader>n :set number!<CR>
 nmap <leader>h :set hlsearch!<CR>
 nmap <leader>o :only<CR>
 syntax enable
